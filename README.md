@@ -1,3 +1,34 @@
+# RAPH Task Manager (Vite + React + Tailwind)
+
+This is a small demo application built for Week 3 assignment. It includes:
+
+- React with Vite
+- Tailwind CSS (dark mode)
+- React Router
+- A Task Manager with localStorage persistence
+- A Posts page that fetches data from JSONPlaceholder (with pagination & search)
+
+## Setup
+
+Make sure you have Node.js installed (v18+ recommended).
+
+1. Install dependencies:
+
+```powershell
+npm install
+```
+
+2. Run the dev server:
+
+```powershell
+npm run dev
+```
+
+3. Open the provided local URL in your browser.
+
+Notes:
+- Theme preference is saved to localStorage.
+- Tasks persist in localStorage.
 # React.js and Tailwind CSS Assignment
 
 This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
