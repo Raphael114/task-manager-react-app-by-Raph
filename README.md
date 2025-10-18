@@ -1,101 +1,156 @@
-# RAPH Task Manager (Vite + React + Tailwind)
+Raph Task Manager
 
-This is a small demo application built for Week 3 assignment. It includes:
 
-- React with Vite
-- Tailwind CSS (dark mode)
-- React Router
-- A Task Manager with localStorage persistence
-- A Posts page that fetches data from JSONPlaceholder (with pagination & search)
 
-## Setup
+Raph Task Manager is a modern, responsive task management web app built with React, React Router, and Tailwind CSS. It provides an intuitive interface for managing daily tasks and viewing demo posts, designed with scalability and clean architecture in mind.
 
-Make sure you have Node.js installed (v18+ recommended).
+Deployment link:   https://task-manager-react-app-by-raph.vercel.app/
 
-1. Install dependencies:
-
-```powershell
-npm install
-```
-
-2. Run the dev server:
-
-```powershell
-npm run dev
-```
-
-3. Open the provided local URL in your browser.
-
-Notes:
-- Theme preference is saved to localStorage.
-- Tasks persist in localStorage.
-# React.js and Tailwind CSS Assignment
-
-This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
-
-## Assignment Overview
-
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
-
-## Getting Started
-
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
-
-## Files Included
-
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
-
-## Requirements
-
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
-
-## Project Structure
-
-```
+🚀 Features
+Task Management – Create, view, and organize tasks seamlessly.
+Demo Posts – Explore demo content via a PostsList component.
+Reusable Components – Modular architecture using Layout, Card, and TaskManager components.
+Client-Side Routing – Built with react-router-dom for smooth navigation.
+Error Handling – Graceful 404 handling with a custom NotFound component.
+Responsive UI – Styled with Tailwind CSS for both light and dark themes.
+🧠 Project Structure
 src/
-├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
-├── api/             # API integration functions
-├── utils/           # Utility functions
-└── App.jsx          # Main application component
-```
+├── components/
+│   ├── Layout.jsx
+│   ├── TaskManager.jsx
+│   ├── PostsList.jsx
+│   └── Card.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
 
-## Submission
+App.jsx
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
 
-## Resources
+This is the main application entry point that defines the routing structure.
 
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Router Documentation](https://reactrouter.com/) 
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import TaskManager from './components/TaskManager';
+import PostsList from './components/PostsList';
+import Card from './components/Card';
+
+function Home() {
+  return (
+    <div className="space-y-6">
+      <Card>
+        <h2 className="text-2xl font-bold">Welcome to RAPH Task Manager</h2>
+        <p className="text-gray-600 dark:text-gray-300">
+          Manage your tasks and explore demo posts.
+        </p>
+      </Card>
+      <TaskManager />
+    </div>
+  );
+}
+
+function NotFound() {
+  return (
+    <Card>
+      <h2 className="text-xl font-bold">404 — Not Found</h2>
+      <p className="text-gray-600 dark:text-gray-300">
+        The page you requested does not exist.
+      </p>
+    </Card>
+  );
+}
+
+export default function App() {
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tasks" element={<TaskManager />} />
+        <Route path="/posts" element={<PostsList />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
+  );
+}
+
+🧩 Tech Stack
+Frontend Framework: React 18+
+Routing: React Router DOM v6+
+Styling: Tailwind CSS
+Build Tool: Vite
+Deployment: Vercel / Netlify compatible
+⚙️ Installation
+
+Clone the repository
+
+git clone https://github.com/yourusername/raph-task-manager.git
+cd raph-task-manager
+
+
+Install dependencies
+
+npm install
+
+
+Run the development server
+
+npm run dev
+
+
+Build for production
+
+npm run build
+
+
+Preview the production build
+
+npm run preview
+
+🧪 Testing
+
+
+
+You can integrate Jest or React Testing Library to ensure component reliability:
+
+npm install --save-dev jest @testing-library/react
+npm test
+
+🧱 Environment Variables (Optional)
+
+
+
+If your app expands to include APIs, define environment variables in a .env file:
+
+VITE_API_URL=https://api.example.com
+
+🖥️ Deployment:  https://task-manager-react-app-by-raph.vercel.app/ 
+
+
+
+For quick deployment, use Vercel:
+
+vercel
+
+
+
+
+Ensure your vite.config.js is correctly configured and your build command is:
+
+npm run build
+
+📜 License
+
+
+
+This project is licensed under the MIT License.
+Feel free to use and modify it for personal or professional projects.
+
+👨‍💻 Author
+
+
+
+Nwamuta Raphael
+Software Engineer • Full Stack Developer
+GitHub: https://github.com/Raphael114 | LinkedIn:  https://www.linkedin.com/in/nwamuta-raphael-a40242182/ | Portfolio
