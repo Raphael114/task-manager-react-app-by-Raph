@@ -14,7 +14,13 @@ const Navbar = () => {
           <Link to="/posts" className="text-sm text-gray-600 dark:text-gray-300">Posts</Link>
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={toggle} className="px-3 py-1 rounded bg-gray-100 dark:bg-gray-700">{theme === 'dark' ? 'Light' : 'Dark'}</button>
+          <button
+            onClick={typeof toggle === 'function' ? toggle : undefined}
+            aria-label="Toggle theme"
+            className="px-3 py-1 rounded bg-gray-100 dark:bg-gray-700"
+          >
+            {theme === 'dark' ? 'Light' : 'Dark'}
+          </button>
         </div>
       </div>
     </nav>

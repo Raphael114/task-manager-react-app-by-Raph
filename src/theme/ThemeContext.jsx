@@ -30,6 +30,17 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => {
+  const ctx = useContext(ThemeContext);
+  // If the provider is missing, return a safe fallback to avoid runtime crashes
+  if (!ctx) {
+    return {
+      theme: 'light',
+      setTheme: () => {},
+      toggle: () => {},
+    };
+  }
+  return ctx;
+};
 
 export default ThemeContext;
