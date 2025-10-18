@@ -4,4 +4,7 @@ import react from '@vitejs/plugin-react';
 //https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base:
+    process.env.VITE_BASE_PATH ||
+    "/react-js-jsx-and-css-mastering-front-end-development-Raphael114.git",
 });
